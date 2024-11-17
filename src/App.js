@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react';
+import DeleteButton from './DeleteButton';
 
 class App extends Component {
 
@@ -60,12 +61,11 @@ class App extends Component {
               {this.state.listOfTodos.map((todo, index) => (
                 <>
                   <li key={index}>{todo}</li>
-                  <button
+                  <DeleteButton 
                     key={`button-${index}`}
-                    onClick={() => this.handleDelete(index)}
-                  >
-                    Delete me!
-                  </button>
+                    index={index}
+                    deleteHandle={this.handleDelete}
+                  />
                 </>
               ))}
             </ol>
